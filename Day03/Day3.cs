@@ -27,7 +27,7 @@ public class Day3(string input) : Day<long, long>(input, false)
         {
             // Find the largest digit and the index the largest digit occurs at, excluding enough values to
             // add the extra digits we need later.
-            (var digit, index) = bank.MaxExcludingLastDigits(i-1, index+1);
+            (var digit, index) = bank.MaxInRange(index+1, i-1);
             // Correct the digit to the place it needs to be in.
             value += digit * (long)Math.Pow(10, i-1);
         }
