@@ -1,3 +1,5 @@
+using System.Diagnostics;
+
 namespace AdventOfCode2025;
 
 /// <summary>
@@ -8,7 +10,8 @@ namespace AdventOfCode2025;
 public abstract class Day<T1, T2>
 {   
     protected readonly string _rawInput;
-    protected readonly bool _debug;
+    private readonly bool _debug;
+    private TimeSpan _executionTime;
     
     /// <param name="rawInput">The raw input string to parse for the problem.</param>
     /// <param name="debug">Whether to print debug statements to the console.</param>
@@ -52,8 +55,10 @@ public abstract class Day<T1, T2>
     /// </summary>
     public virtual Day<T1, T2> Display()
     {
-        Console.WriteLine("Day {0}:", DayNumber);
-        Console.WriteLine("\tPart 1: {0}", Part1);
+        Console.Write("Day {0}:", DayNumber);
+        if (_executionTime != default)
+            Console.Write("\t{0}ms", _executionTime.TotalMilliseconds);
+        Console.WriteLine("\n\tPart 1: {0}", Part1);
         Console.WriteLine("\tPart 2: {0}", Part2);
         return this;
     }
@@ -72,6 +77,7 @@ public abstract class Day<T1, T2>
     /// </summary>
     public virtual Day<T1, T2> Execute()
     {
+        var sw = Stopwatch.StartNew();
         Debug("Parsing Day {0} Input...", DayNumber);
         Parse();
         
@@ -80,6 +86,9 @@ public abstract class Day<T1, T2>
         
         Debug("\nSolving Day {0} Part 2...", DayNumber);
         ExecutePart2();
+        
+        sw.Stop();
+        _executionTime = sw.Elapsed;
         
         Debug(string.Empty);
         
