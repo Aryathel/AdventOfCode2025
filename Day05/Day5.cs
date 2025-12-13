@@ -1,6 +1,6 @@
 namespace AdventOfCode2025.Day05;
 
-public class Day5(string input) : Day<int, long>(input, true)
+public class Day5(string input) : Day<int, long>(input, false)
 {
     protected override int DayNumber => 5;
 
