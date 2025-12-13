@@ -2,8 +2,9 @@
 using AdventOfCode2025.Day02;
 using AdventOfCode2025.Day03;
 using AdventOfCode2025.Day04;
+using AdventOfCode2025.Day05;
 
-
+/*
 // Day 1 - https://adventofcode.com/2025/day/1
 new Day1( File.ReadAllText("./Inputs/Day1.txt"))
     .Execute()
@@ -21,5 +22,11 @@ new Day3( File.ReadAllText("./Inputs/Day3.txt"))
 
 // Day 4 - https://adventofcode.com/2025/day/4
 new Day4( File.ReadAllText("./Inputs/Day4.txt"))
+    .Execute()
+    .Display();
+*/
+
+// Day 5 - https://adventofcode.com/2025/day/5
+new Day5( File.ReadAllText("./Inputs/Day5.txt"))
     .Execute()
     .Display();
